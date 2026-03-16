@@ -1,12 +1,133 @@
 :root {
-  --color-bg: #653C87;
-  --color-secondary: #9A79BA;
-  --color-tertiary: #E6D7FA;
-  --color-text2: #A8A2AB;
-  --color-text: #757575;
+  /* COLORS */
+  /* headers, section titles, buttons, and key highlights */
+  --color-primary: #6A0DAD; /* deep purple */
+  --color-secondary: #8548b1;
+  /* subheadings, icons, progress bars, and hover effects */
+  --color-accent: #CFA9E9; /* lavender */
+  
+  --color-bg: #1C1C1C; /* charcoal black */
+  --color-text: #FFFFFF; /* white */
 
+  /* FONTS */
+  
 }
-body {
+
+nav {
+  position: sticky;
+  top: 0;
   background-color: var(--color-bg);
+  z-index: 1;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-list-container {
+  min-width: 75%;
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  justify-content: space-evenly;
+}
+
+body {
+  background: linear-gradient(135deg, var(--color-bg) 40%, var(--color-primary) 100%);
   color: var(--color-text);
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: var(--color-bg);
+  padding: 40px;
+  text-align: center;
+  color: var(--color-accent);
+}
+
+header h1 {
+  font-size: 48px;
+  color: var(--color-text);
+}
+
+section {
+  padding: 40px;
+  background-color: rgba(28, 28, 28, 0.95);
+  margin: 20px;
+  border-radius: 8px;
+}
+
+h2 {
+  color: var(--color-accent);
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+}
+
+header div {
+  display: flex;
+  align-items: center;
+}
+
+.left-decorator,
+.right-decorator {
+  flex: 1;
+  height: 4px;
+}
+
+.left-decorator {
+  background: linear-gradient(to right, transparent, var(--color-primary));
+}
+
+.right-decorator {
+  background: linear-gradient(to left, transparent, var(--color-primary));
+}
+
+.title-subtext {
+  margin: 0 20px;
+  white-space: nowrap;
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "a b"
+    "c c"
+    "d e";
+  gap: 10px;
+}
+
+.a { grid-area: a; }
+.b { grid-area: b; }
+.c { grid-area: c; }
+.d { grid-area: d; }
+.e { grid-area: e; }
+
+.title-label {
+  max-width: fit-content;
+  color: var(--color-text);
+  padding: 5px 20px 5px 10px;
+  clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+}
+
+.bar span {
+  display: block;
+  height: 20px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
 }

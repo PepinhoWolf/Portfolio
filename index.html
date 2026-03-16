@@ -1,47 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles/styles.css" />
-    <title>Leandro Tronnes Portfolio</title>
-  </head>
-  <body>
-      <!-- Nav -->
-			<nav id="nav">
-				<ul class="container">
-					<li><a href="#top">Top</a></li>
-					<li><a href="#projects">Projects</a></li>
-					<li><a href="#portfolio">Portfolio</a></li>
-					<li><a href="#contact">Contact</a></li>
-				</ul>
-			</nav>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leandro Tronnes Portfolio</title>
+  <link rel="stylesheet" href="styles/styles.css" />
+</head>
+<body>
+  <!-- Nav -->
+  <nav id="nav">
+    <ul class="nav-list-container">
+      <li><a href="#top">Top</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="js-theme-toggle">Toggle Theme</button>
+    <select class="js-language-select">
+      <option value="en">EN</option>
+      <option value="es">ES</option>
+    </select>
+  </nav>
 
-		<!-- Home -->
-			<article>
-				<div class="container">
-          <div>
-            <span class="greeting-image"><img src="images/pic00.jpg" alt="" /></span>
-          </div>
-          <div>
-            <header>
-              <h1 class="js-greeting-text"></h1>
-            </header>
-            <div>
-              <p class="js-greeting-subtext"></p>
-            </div>
-            
-            <!-- <a href="#projects" class="btn-large">About my projects!</a> -->
-					</div>
-				</div>
-			</article>
+  <!-- Header -->
+  <header id="top">
+    <h1 class="js-greeting-text"></h1>
+    <div>
+      <div class="left-decorator"></div>
+      <h2 class="title-subtext">And I'm a <span class="js-greeting-role"></span></h2>
+      <div class="right-decorator"></div>
+    </div>
+  </header>
 
-    <footer>
-      <p>
-        Portfolio made with pure HTML / CSS / JS
-      </p>
-    </footer>
+  <main class="main-container">
+    <!-- About Me Section -->
+    <section id="about" class="a">
+      <h2 class="title-label">ABOUT ME</h2>
+      <div class="about-container">
+        <div class="about-text">
+          <p>This is where my description would go, IF I HAD ANY.</p>
+        </div>
+        <div class="about-photo">
+          <img src="my-beautiful-mugshot.jpg" alt="Professional portrait" aria-label="A breathtakingly radiant depiction of me, glowing with unmatched brilliance and charm, the kind of beauty that makes recruiters pause in awe." title="Yes, I know... It's stunning.">
+        </div>
+      </div>
+    </section>
+  
+    <!-- Skills Section -->
+    <section id="skills" class="b">
+      <h2 class="title-label">SKILLS</h2>
+      <div class="skill">
+        <p>Problem solving</p>
+        <div class="bar"><span style="width:85%"></span></div>
+      </div>
+      <div class="skill">
+        <p>Soft skills</p>
+        <div class="bar"><span style="width:80%"></span></div>
+      </div>
+      <div class="skill">
+        <p>English</p>
+        <div class="bar"><span style="width:95%"></span></div>
+      </div>
+    </section>
+  
+    <!-- My Work Section -->
+    <section id="projects" class="c">
+      <h2 class="title-label">PROJECTS</h2>
+      <div class="work-grid">
+        <div class="project">PLACEHOLDER PROJECT</div>
+      </div>
+    </section>
 
-    <script type="module" src="src/portfolio.js"></script>
-  </body>
+    <!-- Code Portfolio -->
+    <div id="code-portfolio" class="d">
+      <h2 class="title-label">WORK RELATED SOCIALS</h2>
+      <p>GitHub | LinkedIn</p>
+    </div>
+
+    <!-- Contact Section -->
+    <div id="contact" class="e">
+      <h2 class="title-label">CONTACT</h2>
+      <p>Email: placeholder@example.com</p>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2026 Leandro Tronnes</p>
+    <p>Powered by HTML, CSS, and JavaScript</p>
+  </footer>
+
+  <script type="module" src="src/portfolio.js"></script>
+</body>
 </html>

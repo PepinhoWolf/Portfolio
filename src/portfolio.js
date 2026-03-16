@@ -10,11 +10,11 @@ function setTextTranslations() {
 }
 }
 function setRolesLoop(){
-    const rolesEl = document.querySelector(".js-greeting-subtext");
+    const rolesEl = document.querySelector(".js-greeting-role");
     if (!rolesEl) return; // safety check
 
     let selected_role = rolesValues[0];
-    rolesEl.innerHTML = "And I am a " + selected_role;
+    rolesEl.innerHTML = selected_role;
 
     let roleIndex = 0;
     let EEroleIndex = Math.floor(Math.random() * EERoleValues.length);
@@ -28,13 +28,13 @@ function setRolesLoop(){
         }
 
         const randomNum = Math.random();
-        if (allowedRoleEE && randomNum < 0.9) {
+        if (allowedRoleEE && randomNum < 0.05) {
             selected_role = EERoleValues[EEroleIndex];
         } else {
             selected_role = rolesValues[roleIndex];
         }
 
-        rolesEl.innerHTML = "And I am a " + selected_role;
+        rolesEl.innerHTML = selected_role;
 
         roleIndex = (roleIndex + 1) % rolesValues.length;
         EEroleIndex = (EEroleIndex + 1) % EERoleValues.length;
@@ -45,5 +45,10 @@ function setRolesLoop(){
 document.addEventListener("DOMContentLoaded", () => {
   setTextTranslations();
   setRolesLoop();
+  const languageSelect = document.querySelector(".js-language-select");
+  languageSelect.addEventListener("change", () => {
+    selected_language = languageSelect.value;
+    setTextTranslations();
+  });
   console.log("DOM fully loaded and parsed");
 });
