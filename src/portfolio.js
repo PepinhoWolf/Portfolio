@@ -1,54 +1,36 @@
-import { pageTextByLanguage, rolesValues, EERoleValues } from "./pageTextByLanguage.js";
-let selected_language = "en";
+import { setTextTranslations, setRolesLoop } from "./textTranslations.js";
 
-function setTextTranslations() {
-    for (let tag in pageTextByLanguage) {
-        const el = document.querySelector(`.${tag}`);
-        if (el) {
-        el.innerHTML = pageTextByLanguage[tag][selected_language];
-    }
+// Variables
+let selectedLanguage = "en";
+const infoMap = [
+    ["gmail", "horse", "cat", "osvaldo"],
+    ["coco", "leandro", "jose", "truck"],
+    ["@", "junk", ".", "none"],
+    ["tronnes", "none", "com", "net"]
+]
+const languageSelect = document.querySelector(".js-language-select");
+const copyButton = document.querySelector(".js-copy-button");
+
+// Mail basic obfuscation, hello to those who want to read it. It isn't very secure but enough for most scrappers. :)
+function getAssembledInfo() {
+  return infoMap[1][1] + infoMap[2][2] + infoMap[3][0] + infoMap[2][0] + infoMap[0][0] + infoMap[2][2] + infoMap[3][2]
 }
-}
-function setRolesLoop(){
-    const rolesEl = document.querySelector(".js-greeting-role");
-    if (!rolesEl) return; // safety check
 
-    let selected_role = rolesValues[0];
-    rolesEl.innerHTML = selected_role;
-
-    let roleIndex = 0;
-    let EEroleIndex = Math.floor(Math.random() * EERoleValues.length);
-    let roleLoopCounter = 0;
-    let allowedRoleEE = false;
-
-    // Loop roles
-    setInterval(() => {
-        if (roleLoopCounter > 5) {
-            allowedRoleEE = true;
-        }
-
-        const randomNum = Math.random();
-        if (allowedRoleEE && randomNum < 0.05) {
-            selected_role = EERoleValues[EEroleIndex];
-        } else {
-            selected_role = rolesValues[roleIndex];
-        }
-
-        rolesEl.innerHTML = selected_role;
-
-        roleIndex = (roleIndex + 1) % rolesValues.length;
-        EEroleIndex = (EEroleIndex + 1) % EERoleValues.length;
-        roleLoopCounter++;
-    }, 2000);
-};
-
+// EXECUTE
 document.addEventListener("DOMContentLoaded", () => {
+  MainLoop();
+});
+
+function MainLoop() {
   setTextTranslations();
   setRolesLoop();
-  const languageSelect = document.querySelector(".js-language-select");
   languageSelect.addEventListener("change", () => {
-    selected_language = languageSelect.value;
-    setTextTranslations();
+    selectedLanguage = languageSelect.value;
+    setTextTranslations(selectedLanguage);
+    setRolesLoop(selectedLanguage);
   });
-  console.log("DOM fully loaded and parsed");
-});
+  copyButton.addEventListener("click", () => {
+    const textToCopy = getAssembledInfo();
+    navigator.clipboard.writeText(textToCopy);
+  });
+}

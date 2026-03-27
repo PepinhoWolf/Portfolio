@@ -72,7 +72,6 @@ button {
   border-radius: 4px;
   cursor: pointer;
 }
-
 button:hover {
   background-color: var(--color-accent);
   color: var(--color-bg);
@@ -83,16 +82,18 @@ header div {
   align-items: center;
 }
 
+footer {
+  text-align: center;
+}
+
 .left-decorator,
 .right-decorator {
   flex: 1;
   height: 4px;
 }
-
 .left-decorator {
   background: linear-gradient(to right, transparent, var(--color-primary));
 }
-
 .right-decorator {
   background: linear-gradient(to left, transparent, var(--color-primary));
 }
