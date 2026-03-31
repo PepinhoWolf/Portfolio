@@ -1,4 +1,5 @@
-import { setTextTranslations, setRolesLoop } from "./textTranslations.js";
+import { setTextTranslations, setRolesLoop } from "./translationHandler.js";
+import setAllProjects from "./projectHandler.js";
 
 // Variables
 let selectedLanguage = "en";
@@ -33,4 +34,5 @@ function MainLoop() {
     const textToCopy = getAssembledInfo();
     navigator.clipboard.writeText(textToCopy);
   });
+  setAllProjects(selectedLanguage);
 }
