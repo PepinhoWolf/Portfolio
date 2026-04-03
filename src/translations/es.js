@@ -2,9 +2,9 @@ export default {
   rolesValues: ["desarrollador de software", "desarollador web"],
   EERoleValues: ["gamer certificado", "fan de gatitos", "purista del modo oscuro"],
   nav: {
-    top: "Inicio",
-    projects: "Proyectos",
-    contact: "Contacto"
+    top: "INICIO",
+    projects: "PROYECTOS",
+    contact: "CONTACTO"
   },
   themeToggle: "Cambiar Tema",
   greeting: {
