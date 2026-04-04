@@ -17,6 +17,39 @@ function getAssembledInfo() {
   return infoMap[1][1] + infoMap[2][2] + infoMap[3][0] + infoMap[2][0] + infoMap[0][0] + infoMap[2][2] + infoMap[3][2]
 }
 
+async function insertSVGIcon(containerClassName, iconName, link = "") {
+  const containerEl = document.querySelector(`.${containerClassName}`);
+  const linkEl = document.createElement("a");
+
+  linkEl.href = link;
+  linkEl.target = "_blank";
+
+  try {
+    // 1. Fetch the SVG file content
+    const response = await fetch(`images/${iconName}.svg`);
+    const svgText = await response.text();
+
+    // 2. Inject the text directly as HTML
+    linkEl.innerHTML = svgText;
+
+    // // 3. Optional: Add a class for CSS styling
+    // const svgEl = linkEl.querySelector('svg');
+    // if (svgEl) svgEl.classList.add('injected-svg');
+
+  } catch (error) {
+    console.error(`Could not load SVG: ${iconName}`, error);
+  }
+
+  containerEl.appendChild(linkEl);
+}
+
+function insertAllIcons() {
+  Promise.all([
+    insertSVGIcon("js-social-links", "github", "https://github.com/PepinhoWolf"),
+    insertSVGIcon("js-social-links", "linkedin", "https://linkedin.com/in/yourprofile")
+  ]);
+}
+
 // EXECUTE
 document.addEventListener("DOMContentLoaded", () => {
   MainLoop();
@@ -35,4 +68,5 @@ function MainLoop() {
     navigator.clipboard.writeText(textToCopy);
   });
   setAllProjects(selectedLanguage);
+  insertAllIcons();
 }
